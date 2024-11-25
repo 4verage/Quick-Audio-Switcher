@@ -48,23 +48,29 @@ module.exports = meta => {
         windowBar.appendChild(inputAudioLabel);
 
         // Create change listeners.
-        outputList.addEventListener('change', (event) => {
+        const changeOutput = (event) => {
           let changeTo = event.target.value;
 
           if (changeTo !== currSelectedOutput) {
             BdApi.Webpack.getModule(v=>v.setOutputDevice).setOutputDevice(changeTo);
             currSelectedOutput = changeTo;
           }
-        });
+        }
 
-        inputList.addEventListener('change', (event) => {
+        outputList.addEventListener('change', changeOutput);
+
+        const changeInput = (event) => {
           let changeTo = event.target.value;
 
           if (changeTo !== currSelectedInput) {
             BdApi.Webpack.getModule(v=>v.setInputDevice).setInputDevice(changeTo);
             currSelectedInput = changeTo;
           }
-        });
+        }
+
+        inputList.addEventListener('change', changeInput);
+
+        let scanAudioChanges = setInterval(ScanChanges, 500);
         
         function CreateLabel(txt, id) {
           let newLabel = document.createElement("div");
@@ -93,6 +99,23 @@ module.exports = meta => {
           return newSelect;
         }
 
+        function ScanChanges() {
+          let outputScanCheck = mediaEngine.getOutputDeviceId();
+          let inputScanCheck = mediaEngine.getInputDeviceId();
+          if (outputScanCheck !== currSelectedOutput) {
+            outputList.removeEventListener('change', changeOutput);
+            outputList.value = outputScanCheck;
+            currSelectedOutput = outputScanCheck;
+            outputList.addEventListener('change', changeOutput);
+          }
+          if (inputScanCheck !== currSelectedInput) {
+            inputList.removeEventListener('change', changeInput);
+            inputList.value = inputScanCheck;
+            currSelectedInput = inputScanCheck;
+            inputList.addEventListener('change', changeInput);
+          }
+        }
+
       },
       stop: () => {
 
@@ -115,6 +138,9 @@ module.exports = meta => {
         delete AudioOutputDevices;
         delete AudioInputDevices;
         delete windowBar;
+
+        // Clear Timers
+        clearInterval(scanAudioChanges);
         
       },
 
