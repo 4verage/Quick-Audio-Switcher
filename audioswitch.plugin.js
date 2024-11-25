@@ -2,7 +2,7 @@
  * @name Quick Audio Switcher
  * @author 4verage
  * @description Used to quickly switch between audio devices.
- * @version 1.0.0
+ * @version 1.0.1
  * @authorLink https://github.com/4verage
  * @donate https://ko-fi.com/4veragegamer
  * @patreon https://www.patreon.com/c/FirePigStudios
@@ -37,57 +37,10 @@ module.exports = meta => {
         
         // Create audio selector dropdowns
         const windowBar = document.querySelector(".titleBar_a934d8");
-        const outputAudioLabel = document.createElement("div");
-        const inputAudioLabel = document.createElement("div");
-
-        const outputList = document.createElement("select");
-        outputList.id = "outputAudioDevices";
-        outputList.style.width = "180px";
-        outputList.style.webkitAppRegion = 'no-drag';
-        Object.entries(AOD).forEach((item) => {
-          let addOption = document.createElement("option");
-          addOption.value = item[0];
-          addOption.text = item[1];
-          if (currSelectedOutput == item[0]) {
-            addOption.selected = true;
-          }
-          outputList.add(addOption);
-        });
-
-        outputAudioLabel.innerHTML = "Output: ";
-        outputAudioLabel.id = "outputAudioLabel";
-        outputAudioLabel.style.color = "var(--interactive-normal)";
-        outputAudioLabel.style.fontfamily = "Arial";
-        outputAudioLabel.style.fontWeight = "bold";
-        outputAudioLabel.style.paddingLeft = "8px";
-        outputAudioLabel.style.paddingRight = "5px";
-        outputAudioLabel.style.fontSize = "12px";
-        outputAudioLabel.style.paddingTop = "3px";
-
-
-        const inputList = document.createElement("select");
-        inputList.id = "inputAudioDevices";
-        inputList.style.width = "180px";
-        inputList.style.webkitAppRegion = 'no-drag';
-        Object.entries(AID).forEach((item) => {
-          let addOption = document.createElement("option");
-          addOption.value = item[0];
-          addOption.text = item[1];
-          if (currSelectedInput == item[0]) {
-            addOption.selected = true;
-          }
-          inputList.add(addOption);
-        });
-
-        inputAudioLabel.innerHTML = "Input: ";
-        inputAudioLabel.id = "inputAudioLabel";
-        inputAudioLabel.style.color = "var(--interactive-normal)";
-        inputAudioLabel.style.fontfamily = "Arial";
-        inputAudioLabel.style.fontWeight = "bold";
-        inputAudioLabel.style.paddingLeft = "8px";
-        inputAudioLabel.style.paddingRight= "5px";
-        inputAudioLabel.style.fontSize = "12px";
-        inputAudioLabel.style.paddingTop = "3px";
+        const outputAudioLabel = CreateLabel("Output: ", "outputAudioLabel");
+        const inputAudioLabel = CreateLabel("Input: ", "inputAudioLabel");
+        const outputList = CreateSelect("outputAudioDevices", AOD, currSelectedOutput);
+        const inputList = CreateSelect("inputAudioDevices", AID, currSelectedInput);
 
         windowBar.appendChild(outputList);
         windowBar.appendChild(outputAudioLabel);
@@ -113,6 +66,32 @@ module.exports = meta => {
           }
         });
         
+        function CreateLabel(txt, id) {
+          let newLabel = document.createElement("div");
+          newLabel.innerHTML = txt;
+          newLabel.id = id;
+          newLabel.style.font = "bold 12px Arial";
+          newLabel.style.padding = "3px 5px 0px 8px";
+          newLabel.style.color = "var(--interactive-normal)";
+          return newLabel;
+        }
+
+        function CreateSelect(id, dat, current) {
+          let newSelect = document.createElement("select");
+          newSelect.id = id;
+          newSelect.width = "180px";
+          newSelect.style.webkitAppRegion = "no-drag";
+          Object.entries(dat).forEach((item) => {
+            let newOption = document.createElement("option");
+            newOption.value = item[0];
+            newOption.text = item[1];
+            if (current == item[0]) {
+              newOption.selected = true;
+            }
+            newSelect.add(newOption);
+          });
+          return newSelect;
+        }
 
       },
       stop: () => {
