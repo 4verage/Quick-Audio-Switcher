@@ -2,7 +2,7 @@
  * @name Quick Audio Switcher
  * @author 4verage
  * @description Used to quickly switch between audio devices.
- * @version 1.0.1
+ * @version 1.0.2
  * @authorLink https://github.com/4verage
  * @donate https://ko-fi.com/4veragegamer
  * @patreon https://www.patreon.com/c/FirePigStudios
