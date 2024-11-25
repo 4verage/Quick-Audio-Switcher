@@ -26,6 +26,8 @@ The Quick Audio Switcher plugin for BetterDiscord is intended for ease-of-use wh
 
 ## Using the Plugin
 
+![GIF highlighting usage of the Quick Audio Switcher plugin for BetterDiscord](/resources/images/documentation/plugin_use.gif)
+
 Once you have enabled the **Quick Audio Switcher** plugin, you should now see two dropdown menus at the top of your Discord screen in the titlebar (next to the Minimize / Maximize / Close buttons). Each dropdown should be labeled **Input** and **Output**, respectively. Open the dropdown for either output or input to get a list of your devices attached to your system. You can then select one of the devices to dynamically change your Discord to utilize your selected device!
 
 ## Development Information
