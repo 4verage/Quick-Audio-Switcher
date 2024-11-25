@@ -70,7 +70,7 @@ module.exports = meta => {
 
         inputList.addEventListener('change', changeInput);
 
-        let scanAudioChanges = setInterval(ScanChanges, 500);
+        const scanAudioChanges = setInterval(ScanChanges, 500);
         
         function CreateLabel(txt, id) {
           let newLabel = document.createElement("div");
@@ -138,9 +138,6 @@ module.exports = meta => {
         delete AudioOutputDevices;
         delete AudioInputDevices;
         delete windowBar;
-
-        // Clear Timers
-        clearInterval(scanAudioChanges);
         
       },
 
