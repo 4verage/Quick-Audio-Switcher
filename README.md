@@ -43,6 +43,6 @@ This is my first iteration - and first plugin for BetterDiscord - of this plugin
 ### Roadmap
 
 - [ ] Customizable Hotkeys
-- [ ] Update device lists on-the-fly
+- [X] Update device lists on-the-fly
 - [ ] Select other locations (or hide (after hotkeys are enabled)) for the dropdowns.
-- [ ] Code optimization
+- [X] Code optimization
