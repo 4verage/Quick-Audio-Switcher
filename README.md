@@ -34,7 +34,7 @@ Once you have enabled the **Quick Audio Switcher** plugin, you should now see tw
 
 ### Current Version
 
-The current version for Quick Audio Switcher is: v1.0.2!
+The current version for Quick Audio Switcher is: v1.0.3!
 
 ### Development Notes
 
@@ -43,6 +43,6 @@ This is my first iteration - and first plugin for BetterDiscord - of this plugin
 ### Roadmap
 
 - [ ] Customizable Hotkeys
-- [ ] Update device lists on-the-fly
+- [X] Update device lists on-the-fly
 - [ ] Select other locations (or hide (after hotkeys are enabled)) for the dropdowns.
-- [ ] Code optimization
+- [X] Code optimization
