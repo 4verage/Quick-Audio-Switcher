@@ -1,5 +1,9 @@
 # Exhaustive Changelog File
 
+### **<ins>v1.0.2 -> v1.0.3</ins>**
+<sub> Added by [4verage](https://www.github.com/4verage/) on 11/26/2024 @ 9:42 AM </sub>
+
+
 ### **<ins>v1.0.1 -> v1.0.2</ins>**
 <sub> Added by [4verage](https://www.github.com/4verage/) on 11/25/2024 @ 11:17 AM </sub>
 
