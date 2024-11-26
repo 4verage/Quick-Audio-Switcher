@@ -34,7 +34,7 @@ Once you have enabled the **Quick Audio Switcher** plugin, you should now see tw
 
 ### Current Version
 
-The current version for Quick Audio Switcher is: v1.0.2!
+The current version for Quick Audio Switcher is: v1.0.3!
 
 ### Development Notes
 
